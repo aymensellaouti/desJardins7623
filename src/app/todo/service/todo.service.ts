@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
-import { Todo } from '../model/todo';
-import { LoggerService } from '../../services/logger.service';
+import { Injectable } from "@angular/core";
+import { Todo } from "../model/todo";
+import { LoggerService } from "../../services/logger.service";
 
 let n = 1;
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class TodoService {
   private todos: Todo[] = [];
-  constructor(private loggerService: LoggerService) {}
+  constructor(/* private loggerService: LoggerService */) {}
 
   /**
    * elle retourne la liste des todos
@@ -49,6 +49,6 @@ export class TodoService {
    * Logger la liste des todos
    */
   logTodos() {
-    this.loggerService.logger(this.todos);
+    console.log(this.todos);
   }
 }
