@@ -11,6 +11,8 @@ import { AuthGuard } from "./auth/guards/auth.guard";
 import { AddCvComponent } from "./cv/add-cv/add-cv.component";
 import { CvComponent } from "./cv/cv/cv.component";
 import { DetailsCvComponent } from "./cv/details-cv/details-cv.component";
+import { MasterListeComponent } from "./cv/master-liste/master-liste.component";
+import { DetailCvResolverResolver } from "./cv/resolvers/detail-cv-resolver.resolver";
 /* cv/add */
 
 /* /word */
@@ -23,8 +25,19 @@ const routes: Route[] = [
         path: "",
         component: CvComponent,
       },
+      {
+        path: "all",
+        component: MasterListeComponent,
+        children: [{ path: ":id", component: DetailsCvComponent }],
+      },
       { path: "add", component: AddCvComponent, canActivate: [AuthGuard] },
-      { path: ":id", component: DetailsCvComponent },
+      {
+        path: ":id",
+        component: DetailsCvComponent,
+        resolve: {
+          cv: DetailCvResolverResolver,
+        },
+      },
     ],
   },
   {
@@ -46,7 +59,11 @@ const routes: Route[] = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      enableTracing: true,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

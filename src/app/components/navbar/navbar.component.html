@@ -36,6 +36,12 @@
           >Cv</a
         >
         <a
+          class="nav-link"
+          [routerLink]="['cv/all']"
+          routerLinkActive="active text-primary"
+          >Liste Cvs</a
+        >
+        <a
           *ngIf="authService.isAuthenticated()"
           class="nav-link"
           [routerLink]="['cv/add']"

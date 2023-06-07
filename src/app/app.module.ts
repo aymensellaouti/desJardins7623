@@ -60,6 +60,7 @@ import {
 import { MathematiqueService } from "./services/mathematique.service";
 
 import { v4 as uuidv4 } from "uuid";
+import { MasterListeComponent } from './cv/master-liste/master-liste.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,6 +95,7 @@ import { v4 as uuidv4 } from "uuid";
     LoginComponent,
     TestObservableComponent,
     TestHttpComponent,
+    MasterListeComponent,
   ],
   imports: [
     BrowserModule,
