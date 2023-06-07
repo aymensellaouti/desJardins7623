@@ -43,7 +43,10 @@ import { ItemComponent } from "./cv/item/item.component";
 import { DefaultImagePipe } from "./cv/pipes/default-image.pipe";
 import { EmbaucheComponent } from "./cv/embauche/embauche.component";
 import { CvCardComponent } from "./cv/cv-card/cv-card.component";
-import { LOGGER_SERVICE_TOKEN } from "./injectionTokens/inject.tokens";
+import {
+  LOGGER_SERVICE_TOKEN,
+  UUID_PROVIDER,
+} from "./injectionTokens/inject.tokens";
 import {
   createLogger2ServiceFactory,
   createLoggerServiceFactory,
@@ -56,6 +59,7 @@ import {
 } from "./factories/utils.provider-factory";
 import { MathematiqueService } from "./services/mathematique.service";
 
+import { v4 as uuidv4 } from "uuid";
 @NgModule({
   declarations: [
     AppComponent,
@@ -110,6 +114,10 @@ import { MathematiqueService } from "./services/mathematique.service";
       provide: LoggerService,
       useFactory: createLogger2ServiceFactory,
       multi: true,
+    },
+    {
+      provide: UUID_PROVIDER,
+      useValue: uuidv4,
     },
   ],
   bootstrap: [AppComponent],
