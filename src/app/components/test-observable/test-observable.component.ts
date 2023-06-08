@@ -1,14 +1,16 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Observable, Subscription, filter, map } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
+import { Component, OnDestroy } from "@angular/core";
+import { Observable, Subscription, filter, map, timer } from "rxjs";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
-  selector: 'app-test-observable',
-  templateUrl: './test-observable.component.html',
-  styleUrls: ['./test-observable.component.css'],
+  selector: "app-test-observable",
+  templateUrl: "./test-observable.component.html",
+  styleUrls: ["./test-observable.component.css"],
 })
-export class TestObservableComponent implements OnDestroy {
+export class TestObservableComponent /* implements OnDestroy */ {
   firstObservable$: Observable<number>;
+  /*   mySetTimout$ = timer(1000);
+  mySetInterval$ = timer(0, 1000); */
   subscriptions: Subscription[] = [];
   constructor(private toaster: ToastrService) {
     this.firstObservable$ = new Observable((observer) => {
@@ -20,7 +22,22 @@ export class TestObservableComponent implements OnDestroy {
         observer.next(i--);
       }, 1000);
     });
-    this.subscriptions.push(this.firstObservable$.subscribe((val) => {
+    this.firstObservable$.subscribe({
+      next: (data) => {
+        console.log("First Subscriber" + data);
+      },
+    });
+    this.firstObservable$.pipe(map((element) => element * 3)).subscribe({
+      next: (data) => {
+        this.toaster.info("Second Subscriber " + data);
+      },
+      complete: () => {
+        this.toaster.info("Second Subscriber Boom");
+      },
+    });
+  }
+
+  /*  this.subscriptions.push(this.firstObservable$.subscribe((val) => {
       console.log(val);
     }));
     setTimeout(
@@ -42,5 +59,5 @@ export class TestObservableComponent implements OnDestroy {
     this.subscriptions.forEach(
       (subscription: Subscription) => subscription.unsubscribe()
     )
-  }
+  } */
 }

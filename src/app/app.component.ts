@@ -26,15 +26,15 @@ export class AppComponent {
     this.router.events.subscribe((event) => {
       /* Dés que tu commences ta navigation lance le loader */
       if (event instanceof NavigationStart) {
-        this.ngxService.start();
+        /* this.ngxService.start(); */
       }
-      /* Dés que tu termine ta navigation stop le loader */
+      /* Dés que tu termine ta navigation  le loader */
       if (
         event instanceof NavigationEnd ||
         event instanceof NavigationError ||
         event instanceof NavigationCancel
       ) {
-        this.ngxService.stop();
+        /* this.ngxService.stop(); */
       }
     });
     this.loggers.forEach((loggerService) => {
