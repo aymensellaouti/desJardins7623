@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { map, startWith, timer } from "rxjs";
+import { map, startWith, take, timer } from "rxjs";
 
 @Component({
   selector: "app-slider",
@@ -15,5 +15,6 @@ export class SliderComponent {
     map((indice) => this.paths[indice % this.paths.length]),
     /* => "as.jpg", "404.png", "cv.png", "tim_logo.png",  "as.jpg", "404.png", "cv.png", "tim_logo.png" */
     startWith(this.paths[0])
+    /* take(3) */
   );
 }
