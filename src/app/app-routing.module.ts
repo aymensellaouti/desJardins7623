@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Route } from "@angular/router";
-import { TodoComponent } from "./todo/todo/todo.component";
 import { MiniWordComponent } from "./directives/mini-word/mini-word.component";
 import { ColorComponent } from "./components/color/color.component";
 import { FrontComponent } from "./templates/front/front.component";
@@ -15,7 +14,7 @@ import { MasterListeComponent } from "./cv/master-liste/master-liste.component";
 import { DetailCvResolverResolver } from "./cv/resolvers/detail-cv-resolver.resolver";
 /* cv/add */
 
-/* /word */
+/* /todo */
 const routes: Route[] = [
   { path: "login", component: LoginComponent },
   {
@@ -44,8 +43,12 @@ const routes: Route[] = [
     path: "",
     component: FrontComponent,
     children: [
-      { path: "todo", component: TodoComponent },
       { path: "word", component: MiniWordComponent },
+      {
+        path: "todo",
+        loadChildren: () =>
+          import("./todo/todo.module").then((m) => m.TodoModule),
+      },
     ],
   },
   {
@@ -55,7 +58,7 @@ const routes: Route[] = [
       { path: "color/:defaultColor/:color", component: ColorComponent },
     ],
   },
-  { path: "**", component: NF404Component },
+  /*   { path: "**", component: NF404Component }, */
 ];
 
 @NgModule({

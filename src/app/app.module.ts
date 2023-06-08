@@ -25,7 +25,6 @@ import { DetailsCvComponent } from "./cv/details-cv/details-cv.component";
 import { NgstyleComponent } from "./directives/ngstyle/ngstyle.component";
 import { MiniWordComponent } from "./directives/mini-word/mini-word.component";
 import { NgclassComponent } from "./directives/ngclass/ngclass.component";
-import { TodoComponent } from "./todo/todo/todo.component";
 
 import { HighlightDirective } from "./directives/highlight.directive";
 import { RainbowDirective } from "./directives/rainbow.directive";
@@ -91,7 +90,6 @@ import { AutocompleteComponent } from "./cv/autocomplete/autocomplete.component"
     HighlightDirective,
     RainbowDirective,
     Btc2usdPipe,
-    TodoComponent,
     NavbarComponent,
     FrontComponent,
     AdminComponent,

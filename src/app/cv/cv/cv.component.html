@@ -9,6 +9,10 @@
       </pre> -->
     </div>
     <app-list [cvs]="cvs$ | async"></app-list>
+    juniors :
+    <app-list [cvs]="juniors$ | async"></app-list>
+    seniors :
+    <app-list [cvs]="seniors$ | async"></app-list>
   </div>
   <div class="col">
     <app-cv-card></app-cv-card>
