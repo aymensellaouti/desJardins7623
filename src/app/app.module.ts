@@ -4,6 +4,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
+import { AppRoutingModule } from "./app-routing.module";
+
+import { NgxUiLoaderModule } from "ngx-ui-loader";
 import { ToastrModule } from "ngx-toastr";
 
 import { AppComponent } from "./app.component";
@@ -28,7 +31,6 @@ import { HighlightDirective } from "./directives/highlight.directive";
 import { RainbowDirective } from "./directives/rainbow.directive";
 
 import { Btc2usdPipe } from "./pipes/btc2usd.pipe";
-import { AppRoutingModule } from "./app-routing.module";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { FrontComponent } from "./templates/front/front.component";
 import { AdminComponent } from "./templates/admin/admin.component";
@@ -60,7 +62,8 @@ import {
 import { MathematiqueService } from "./services/mathematique.service";
 
 import { v4 as uuidv4 } from "uuid";
-import { MasterListeComponent } from './cv/master-liste/master-liste.component';
+import { MasterListeComponent } from "./cv/master-liste/master-liste.component";
+import { CvService } from "./cv/services/cv.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -104,6 +107,7 @@ import { MasterListeComponent } from './cv/master-liste/master-liste.component';
     ToastrModule.forRoot(), // ToastrModule added
     AppRoutingModule,
     HttpClientModule,
+    NgxUiLoaderModule,
   ],
   providers: [
     AuthInterceptorProvider,
