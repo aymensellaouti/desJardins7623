@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -64,7 +64,8 @@ import { MathematiqueService } from "./services/mathematique.service";
 import { v4 as uuidv4 } from "uuid";
 import { MasterListeComponent } from "./cv/master-liste/master-liste.component";
 import { CvService } from "./cv/services/cv.service";
-import { SliderComponent } from './rxjs/slider/slider.component';
+import { SliderComponent } from "./rxjs/slider/slider.component";
+import { AutocompleteComponent } from "./cv/autocomplete/autocomplete.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,6 +102,7 @@ import { SliderComponent } from './rxjs/slider/slider.component';
     TestHttpComponent,
     MasterListeComponent,
     SliderComponent,
+    AutocompleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,6 +112,7 @@ import { SliderComponent } from './rxjs/slider/slider.component';
     AppRoutingModule,
     HttpClientModule,
     NgxUiLoaderModule,
+    ReactiveFormsModule,
   ],
   providers: [
     AuthInterceptorProvider,

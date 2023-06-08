@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { Cv } from '../model/cv';
-import { Subject, distinctUntilChanged, Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { API } from '../../../config/api.config';
+import { Injectable } from "@angular/core";
+import { Cv } from "../model/cv";
+import { Subject, distinctUntilChanged, Observable } from "rxjs";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { API } from "../../../config/api.config";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class CvService {
   private cvs: Cv[] = [];
@@ -19,8 +19,8 @@ export class CvService {
   selectCv$ = this.selectCvSubject.asObservable().pipe(distinctUntilChanged());
   constructor(private http: HttpClient) {
     this.cvs = [
-      new Cv(1, 'aymen', 'sellaouti', 'teacher', 'as.jpg', '1234', 40),
-      new Cv(2, 'skander', 'sellaouti', 'enfant', '       ', '1234', 4),
+      new Cv(1, "aymen", "sellaouti", "teacher", "as.jpg", "1234", 40),
+      new Cv(2, "skander", "sellaouti", "enfant", "       ", "1234", 4),
     ];
   }
 
@@ -110,5 +110,13 @@ export class CvService {
    */
   selectCv(cv: Cv) {
     this.selectCvSubject.next(cv);
+  }
+
+  getCvsByName(name: string): Observable<Cv[]> {
+    const params = new HttpParams().set(
+      "filter",
+      `{"where":{"name":{"like":"%${name}%"}}}`
+    );
+    return this.http.get<Cv[]>(API.cv, { params });
   }
 }
