@@ -64,6 +64,7 @@ import { MathematiqueService } from "./services/mathematique.service";
 import { v4 as uuidv4 } from "uuid";
 import { MasterListeComponent } from "./cv/master-liste/master-liste.component";
 import { CvService } from "./cv/services/cv.service";
+import { SliderComponent } from './rxjs/slider/slider.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,6 +100,7 @@ import { CvService } from "./cv/services/cv.service";
     TestObservableComponent,
     TestHttpComponent,
     MasterListeComponent,
+    SliderComponent,
   ],
   imports: [
     BrowserModule,
