@@ -1,8 +1,8 @@
 <h1>Counter</h1>
 <p>
-  <strong>{{ count }}</strong>
+  <strong data-testid="count">{{ count }}</strong>
 </p>
 <p>
-  <button (click)="increment()">+</button>
-  <button (click)="decrement()">-</button>
+  <button (click)="increment()" data-testid="increment-button">+</button>
+  <button (click)="decrement()" data-testid="decrement-button">-</button>
 </p>
