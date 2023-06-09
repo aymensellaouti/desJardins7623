@@ -30,8 +30,7 @@ export class CvComponent {
   constructor(
     /*     private logger: LoggerService, */
     private toastr: ToastrService,
-    private cvService: CvService,
-    private todoService: TodoService
+    private cvService: CvService
   ) {
     this.cvs$ = this.cvService.getCvs().pipe(
       shareReplay(),
@@ -54,7 +53,6 @@ export class CvComponent {
     /* this.logger.logger("je suis le cvComponent"); */
     this.toastr.info("Bienvenu dans notre CvTech");
     this.cvService.selectCv$.subscribe(() => {
-      this.todoService.logTodos();
       this.nbClickItem++;
     });
   }

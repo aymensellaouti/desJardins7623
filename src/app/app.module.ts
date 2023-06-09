@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -17,11 +17,6 @@ import { TwoComponent } from "./components/two/two.component";
 import { CardProfilComponent } from "./components/card-profil/card-profil.component";
 import { PereComponent } from "./components/pere/pere.component";
 import { FilsComponent } from "./components/fils/fils.component";
-
-import { AddCvComponent } from "./cv/add-cv/add-cv.component";
-import { CvComponent } from "./cv/cv/cv.component";
-import { DetailsCvComponent } from "./cv/details-cv/details-cv.component";
-
 import { NgstyleComponent } from "./directives/ngstyle/ngstyle.component";
 import { MiniWordComponent } from "./directives/mini-word/mini-word.component";
 import { NgclassComponent } from "./directives/ngclass/ngclass.component";
@@ -39,32 +34,17 @@ import { LoginComponent } from "./auth/login/login.component";
 import { TestObservableComponent } from "./components/test-observable/test-observable.component";
 import { TestHttpComponent } from "./components/test-http/test-http.component";
 import { AuthInterceptorProvider } from "./auth/interceptors/auth.interceptor";
-import { ListComponent } from "./cv/list/list.component";
-import { ItemComponent } from "./cv/item/item.component";
-import { DefaultImagePipe } from "./cv/pipes/default-image.pipe";
-import { EmbaucheComponent } from "./cv/embauche/embauche.component";
-import { CvCardComponent } from "./cv/cv-card/cv-card.component";
-import {
-  LOGGER_SERVICE_TOKEN,
-  UUID_PROVIDER,
-} from "./injectionTokens/inject.tokens";
+
+import { UUID_PROVIDER } from "./injectionTokens/inject.tokens";
 import {
   createLogger2ServiceFactory,
   createLoggerServiceFactory,
 } from "./factories/logger.provider-factory";
 import { LoggerService } from "./services/logger.service";
-import { UtilsService } from "./services/utils.service";
-import {
-  createMathServiceFactory,
-  createUtilsServiceFactory,
-} from "./factories/utils.provider-factory";
-import { MathematiqueService } from "./services/mathematique.service";
 
 import { v4 as uuidv4 } from "uuid";
-import { MasterListeComponent } from "./cv/master-liste/master-liste.component";
-import { CvService } from "./cv/services/cv.service";
 import { SliderComponent } from "./rxjs/slider/slider.component";
-import { AutocompleteComponent } from "./cv/autocomplete/autocomplete.component";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,15 +55,6 @@ import { AutocompleteComponent } from "./cv/autocomplete/autocomplete.component"
     CardProfilComponent,
     PereComponent,
     FilsComponent,
-    AddCvComponent,
-    CvComponent,
-    ListComponent,
-    ItemComponent,
-    DetailsCvComponent,
-    CvCardComponent,
-    CardProfilComponent,
-    EmbaucheComponent,
-    DefaultImagePipe,
     NgstyleComponent,
     MiniWordComponent,
     NgclassComponent,
@@ -98,9 +69,7 @@ import { AutocompleteComponent } from "./cv/autocomplete/autocomplete.component"
     LoginComponent,
     TestObservableComponent,
     TestHttpComponent,
-    MasterListeComponent,
     SliderComponent,
-    AutocompleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,7 +79,6 @@ import { AutocompleteComponent } from "./cv/autocomplete/autocomplete.component"
     AppRoutingModule,
     HttpClientModule,
     NgxUiLoaderModule,
-    ReactiveFormsModule,
   ],
   providers: [
     AuthInterceptorProvider,
