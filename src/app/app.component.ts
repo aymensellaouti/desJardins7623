@@ -1,4 +1,9 @@
-import { Component, Inject } from "@angular/core";
+import {
+  ApplicationRef,
+  ChangeDetectorRef,
+  Component,
+  Inject,
+} from "@angular/core";
 import { LoggerService } from "./services/logger.service";
 import { LOGGER_SERVICE_TOKEN } from "./injectionTokens/inject.tokens";
 import { UtilsService } from "./services/utils.service";
@@ -24,6 +29,8 @@ export class AppComponent {
   constructor(
     private utilsService: UtilsService,
     private router: Router,
+    public ar: ApplicationRef,
+    public cdr: ChangeDetectorRef,
     @Inject(LoggerService) private loggers: LoggerService[],
     private ngxService: NgxUiLoaderService
   ) {
