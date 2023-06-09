@@ -1,6 +1,13 @@
 <app-navbar></app-navbar>
 <hr />
 <ngx-ui-loader></ngx-ui-loader>
+{{ test() }}
+
+<input type="text" [(ngModel)]="name" />
+
+<input type="text" [(ngModel)]="user.email" />
+
+<app-test-on-push [name]="name" [user]="user"></app-test-on-push>
 <!-- <app-slider></app-slider> -->
 <!-- <app-test-observable></app-test-observable>
  --><router-outlet

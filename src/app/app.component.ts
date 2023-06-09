@@ -10,6 +10,7 @@ import {
   NavigationStart,
   Router,
 } from "@angular/router";
+import { User } from "./auth/dto/user.model";
 
 @Component({
   selector: "app-root",
@@ -17,6 +18,9 @@ import {
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
+  x = 2;
+  name = "aymen";
+  user: User = new User(1, "aymen@gmail.com");
   constructor(
     private utilsService: UtilsService,
     private router: Router,
@@ -43,4 +47,8 @@ export class AppComponent {
     console.log(this.utilsService.add(2, 5));
   }
   title = "Starting Advanced Topics";
+  test() {
+    console.log("Je vais retourner ", this.x);
+    return this.x;
+  }
 }

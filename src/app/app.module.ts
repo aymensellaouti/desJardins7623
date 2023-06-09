@@ -44,6 +44,8 @@ import { LoggerService } from "./services/logger.service";
 
 import { v4 as uuidv4 } from "uuid";
 import { SliderComponent } from "./rxjs/slider/slider.component";
+import { TestOnPushComponent } from './test-on-push/test-on-push.component';
+import { ProcesPipe } from './pipes/proces.pipe';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { SliderComponent } from "./rxjs/slider/slider.component";
     TestObservableComponent,
     TestHttpComponent,
     SliderComponent,
+    TestOnPushComponent,
+    ProcesPipe,
   ],
   imports: [
     BrowserModule,
