@@ -47,6 +47,7 @@ const routes: Route[] = [
     RouterModule.forRoot(
       routes,
       {
+        /* preloadingStrategy: PreloadAllModules, */
         preloadingStrategy: CustomPreloadingStrategy,
       }
       /*    {
